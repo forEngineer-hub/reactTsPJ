@@ -65,7 +65,7 @@ export const fetchCategoriesDataActionCreator = (): ThunkAction<
 > => async (dispatch, getState) => {
   dispatch(fetchCategoriesStartActionCreator());
   try {
-    const { data } = await axios.post(
+    const { data } = await axios.get(
       "http://localhost:8081/categories"
     );
     dispatch(fetchCategoriesSuccessActionCreator(data));
