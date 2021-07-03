@@ -5,6 +5,7 @@ import { fetchCategoriesDataActionCreator } from "../../redux/shoppingMall/fetch
 import { RootState } from "../../redux/store";
 import "./shoppingMall.css";
 import { EmComponent } from "./EmComponent";
+import SwiperDiv from "../../components/swiper/Swiper";
 
 export const ShoppingMall: React.FC = () => {
   let categories: any = useSelector((s: RootState) => s.categories);
@@ -50,7 +51,7 @@ export const ShoppingMall: React.FC = () => {
   return categories.loading === true ? (
     <h1>"loading"</h1>
   ) : (
-    <div>
+    <div id="content">
       <div id="banner">
         <div className="all-sort-list">
           {categories.error != null
@@ -97,6 +98,7 @@ export const ShoppingMall: React.FC = () => {
                 );
               })}
         </div>
+        <SwiperDiv></SwiperDiv>
       </div>
     </div>
   );
