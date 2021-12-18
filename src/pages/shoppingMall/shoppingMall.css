@@ -524,3 +524,6 @@
 #banner {
     top:300px;
 }
+._hidden {
+    display: none;
+}

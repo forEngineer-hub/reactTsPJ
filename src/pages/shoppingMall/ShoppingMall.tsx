@@ -6,6 +6,8 @@ import { RootState } from "../../redux/store";
 import "./shoppingMall.css";
 import { EmComponent } from "./EmComponent";
 import SwiperDiv from "../../components/swiper/Swiper";
+import NewSwiper from "../../components/swiper/NewSwiper";
+import { Link } from "react-router-dom";
 
 export const ShoppingMall: React.FC = () => {
   let categories: any = useSelector((s: RootState) => s.categories);
@@ -19,6 +21,7 @@ export const ShoppingMall: React.FC = () => {
   const onMouseOverHandler = (e) => {
     //e.target 只是触发当前时间的对象
     // 也可能是h3 也可能是 item-list
+    console.log("onMouseOverHandler",e);
     console.log(e.currentTarget);
     //if(e.target.className === e.currentTarget.className ){
       const sortList = document.getElementsByClassName("all-sort-list")[0];
@@ -30,7 +33,7 @@ export const ShoppingMall: React.FC = () => {
       //调用下call 的用法
       let itemList =  Array.prototype.filter.call(e.currentTarget.childNodes,node => node.className ==="item-list"); //filter(node => node.className ==="item-list");
       itemList[0].style.display = "block";
-      debugger;
+      
       itemList[0].style.top =  (targetTop - sLTop) + "px";
       //itemList[0].style.setProperty("top", (targetTop - sLTop) + "px");
 
@@ -66,7 +69,8 @@ export const ShoppingMall: React.FC = () => {
                   >
                     <h3>
                       <span>·</span>
-                      <a href="##">{category.categoryName}</a>
+                      <Link to={"/detail/39996f34-013c-4fc6-b1b3-0c1036c47113"}> test</Link>
+                      <a href="/detail/39996f34-013c-4fc6-b1b3-0c1036c47113">{category.categoryName}</a>
                     </h3>
                     <div className="item-list">
                       <div className="subitem">
@@ -84,6 +88,15 @@ export const ShoppingMall: React.FC = () => {
                                           categoryId={vos3.categoryId}
                                           categoryName={vos3.categoryName}
                                         ></EmComponent>
+                                        // <div>
+
+                                        // <span key={thirdIdx} review-id ={thirdIdx} onClick={e=>console.log("testteststetstst",e.currentTarget.nextElementSibling?.innerHTML)}>
+                                        //   {thirdIdx}
+                                        // </span>
+                                        // <span style={{display:"none"}}>
+                                        // {thirdIdx}
+                                        // </span>
+                                        // </div>
                                       );
                                     }
                                   )}
@@ -99,6 +112,7 @@ export const ShoppingMall: React.FC = () => {
               })}
         </div>
         <SwiperDiv></SwiperDiv>
+        {/* <NewSwiper></NewSwiper> */}
       </div>
     </div>
   );

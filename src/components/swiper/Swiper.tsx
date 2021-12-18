@@ -11,6 +11,7 @@ import "./styles.css";
 
 // import Swiper core and required modules
 import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper/core";
+import { IncomingMessage } from "http";
 
 // install Swiper modules
 SwiperCore.use([Autoplay, Pagination, Navigation]);

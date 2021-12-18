@@ -65,9 +65,22 @@ export const fetchCategoriesDataActionCreator = (): ThunkAction<
 > => async (dispatch, getState) => {
   dispatch(fetchCategoriesStartActionCreator());
   try {
-    const { data } = await axios.get(
+    //第一种
+    const { data } = await axios.post(
       "http://localhost:8081/categories"
     );
+
+    //if(data!=null && data.error){
+    // dispatch a action
+    //}
+//...........................................................
+    //2
+    // axios.post(
+    //   "http://localhost:8081/categories"
+    // ).then( (res)=>{
+    //   //res.error?
+    // }).
+
     dispatch(fetchCategoriesSuccessActionCreator(data));
   } catch (error) {
     dispatch(fetchCategoriesFailActionCreator(error.message));
